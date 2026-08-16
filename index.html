@@ -4,779 +4,800 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Linha Segura</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --purple-950:#1E0B33;
-    --purple-900:#2E0F4D;
-    --purple-700:#5B2A86;
-    --purple-600:#6F35A3;
-    --purple-500:#8B4FC7;
-    --purple-300:#C7A3E8;
-    --purple-100:#F3EAFB;
-    --lavender:#FAF6FE;
-    --black:#121014;
-    --ink:#1B1720;
-    --white:#FFFFFF;
-    --alert:#E23B57;
-    --alert-dim:#F6D9DF;
-    --ok:#3FAE7A;
-    --radius-lg:22px;
-    --radius-md:14px;
-    --radius-sm:9px;
-    --shadow:0 18px 40px rgba(46,15,77,0.28);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html,body{height:100%;}
-  body{
-    font-family:'Inter',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #090909;
+    color: white;
+    min-height: 100vh;
+}
+
+/* LOGIN */
+.login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background: #151515;
+    padding: 35px;
+    border-radius: 25px;
+    border: 1px solid #6c2bd9;
+    box-shadow: 0 0 35px rgba(108,43,217,.25);
+    text-align: center;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #7b2cff, #4c16a8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+.subtitle {
+    color: #aaa;
+    margin: 10px 0 25px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #0d0d0d;
+    color: white;
+    outline: none;
+}
+
+input:focus {
+    border-color: #7b2cff;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    background: #7028e4;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background: #873fff;
+}
+
+/* APP */
+.app {
+    display: none;
+    min-height: 100vh;
+}
+
+header {
+    height: 75px;
+    background: #111;
+    border-bottom: 1px solid #292929;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #7028e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.logout {
+    background: #222;
+    color: #ddd;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px 100px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    font-size: 28px;
+}
+
+.welcome p {
+    color: #999;
+    margin-top: 6px;
+}
+
+/* EMERGENCY */
+.emergency {
+    background: linear-gradient(135deg, #3b126b, #16091f);
+    border: 1px solid #7028e4;
+    border-radius: 22px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.emergency h3 {
+    margin-bottom: 8px;
+}
+
+.emergency p {
+    color: #bbb;
+    margin-bottom: 18px;
+}
+
+.emergency-btn {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #7028e4;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 30px rgba(112,40,228,.4);
+}
+
+.emergency-btn:hover {
+    transform: scale(1.04);
+    background: #873fff;
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    padding: 22px;
+    min-height: 170px;
+    transition: .2s;
+}
+
+.card:hover {
+    border-color: #7028e4;
+    transform: translateY(-3px);
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    background: #261044;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card button {
+    margin-top: 15px;
+    padding: 10px 14px;
+    border-radius: 9px;
+    background: #7028e4;
+    color: white;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 450px;
+    background: #151515;
+    border: 1px solid #7028e4;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-bottom: 15px;
+}
+
+.close {
+    float: right;
+    background: #222;
+    color: white;
+    padding: 7px 11px;
+    border-radius: 8px;
+}
+
+/* MAPA */
+.map {
+    height: 230px;
     background:
-      radial-gradient(circle at 15% 10%, rgba(139,79,199,0.35), transparent 45%),
-      radial-gradient(circle at 85% 90%, rgba(91,42,134,0.4), transparent 50%),
-      var(--purple-950);
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:32px 16px;
-    color:var(--ink);
-  }
-  .device{
-    width:390px;
-    max-width:100%;
-    height:832px;
-    max-height:92vh;
-    background:var(--lavender);
-    border-radius:44px;
-    border:10px solid var(--black);
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    transition:background .45s ease;
-  }
-  .device.discreet{ background:#F4F4F5; }
+        linear-gradient(45deg, #171717 25%, transparent 25%),
+        linear-gradient(-45deg, #171717 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #171717 75%),
+        linear-gradient(-45deg, transparent 75%, #171717 75%);
+    background-size: 45px 45px;
+    background-color: #101010;
+    border-radius: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+}
 
-  /* status bar */
-  .statusbar{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:14px 26px 4px;
-    font-size:13px; font-weight:600; color:var(--purple-950);
-    flex-shrink:0;
-  }
-  .device.discreet .statusbar{ color:#3A3A3D; }
-  .notch{
-    position:absolute; top:0; left:50%; transform:translateX(-50%);
-    width:120px; height:26px; background:var(--black); border-radius:0 0 16px 16px; z-index:30;
-  }
+/* MOBILE */
+@media(max-width:600px) {
+    header {
+        padding: 0 15px;
+    }
 
-  /* header */
-  header.app-header{
-    padding:6px 22px 18px;
-    flex-shrink:0;
-    transition:.4s ease;
-  }
-  .brandrow{ display:flex; align-items:center; justify-content:space-between; }
-  .brand{ display:flex; align-items:center; gap:10px; }
-  .brand-mark{
-    width:34px; height:34px; border-radius:10px;
-    background:linear-gradient(135deg,var(--purple-500),var(--purple-900));
-    display:flex; align-items:center; justify-content:center;
-    color:var(--white); font-family:'Manrope',sans-serif; font-weight:800; font-size:15px;
-    flex-shrink:0;
-  }
-  .device.discreet .brand-mark{ background:#D8D8DC; color:#6B6B70; }
-  .brand-name{ font-family:'Manrope',sans-serif; font-weight:800; font-size:19px; color:var(--purple-950); letter-spacing:-.02em; }
-  .device.discreet .brand-name{ color:#3A3A3D; }
-  .brand-sub{ font-size:11.5px; color:var(--purple-600); font-weight:600; margin-top:-2px; }
-  .device.discreet .brand-sub{ color:#8A8A90; }
+    main {
+        padding: 20px 15px 80px;
+    }
 
-  .discreet-toggle{
-    display:flex; align-items:center; gap:7px;
-    background:var(--white); border:1.5px solid var(--purple-100);
-    border-radius:30px; padding:7px 12px 7px 8px; cursor:pointer;
-    font-size:11.5px; font-weight:700; color:var(--purple-700);
-    transition:.25s;
-  }
-  .device.discreet .discreet-toggle{ background:#EDEDEF; border-color:#DCDCDF; color:#5A5A60; }
-  .discreet-toggle .dot{ width:9px; height:9px; border-radius:50%; background:var(--purple-300); transition:.25s; }
-  .discreet-toggle.active .dot{ background:var(--ok); }
+    .welcome h2 {
+        font-size: 23px;
+    }
 
-  /* content */
-  main{ flex:1; overflow-y:auto; padding:0 20px 110px; scrollbar-width:none; }
-  main::-webkit-scrollbar{ display:none; }
-  .screen{ display:none; animation:fade .3s ease; }
-  .screen.active{ display:block; }
-  @keyframes fade{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
-
-  .section-title{ font-family:'Manrope',sans-serif; font-weight:800; font-size:16.5px; color:var(--purple-950); margin:22px 0 12px; letter-spacing:-.01em; }
-  .device.discreet .section-title{ color:#3A3A3D; }
-  .section-title:first-child{ margin-top:4px; }
-  .muted{ color:#7A6A8C; font-size:12.5px; line-height:1.5; }
-  .device.discreet .muted{ color:#8A8A90; }
-
-  .card{
-    background:var(--white); border-radius:var(--radius-md);
-    padding:16px; margin-bottom:12px; border:1px solid #EFE4FA;
-  }
-  .device.discreet .card{ border-color:#E4E4E7; }
-
-  /* HOME - SOS */
-  .sos-wrap{
-    background:linear-gradient(160deg,var(--purple-700),var(--purple-950));
-    border-radius:26px; padding:26px 22px 24px; margin-top:8px;
-    position:relative; overflow:hidden; color:var(--white);
-    transition:.4s;
-  }
-  .device.discreet .sos-wrap{ background:#E7E7EA; color:#3A3A3D; }
-  .sos-eyebrow{ font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; opacity:.75; }
-  .sos-title{ font-family:'Manrope',sans-serif; font-weight:800; font-size:18px; margin:6px 0 4px; }
-  .sos-desc{ font-size:12.5px; opacity:.85; line-height:1.5; max-width:230px; }
-  .sos-btn-row{ display:flex; justify-content:center; margin-top:18px; }
-  .sos-btn{
-    width:120px; height:120px; border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, #F0577A, var(--alert));
-    border:5px solid rgba(255,255,255,0.35);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    color:var(--white); font-family:'Manrope',sans-serif; font-weight:800; font-size:14px;
-    cursor:pointer; user-select:none; -webkit-user-select:none;
-    box-shadow:0 0 0 0 rgba(226,59,87,.5);
-    position:relative; transition:transform .15s;
-  }
-  .device.discreet .sos-btn{
-    width:64px; height:64px; border-radius:16px; border:none;
-    background:var(--white); color:#8A8A90; font-size:26px; font-weight:400;
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
-  }
-  .sos-btn:active{ transform:scale(.94); }
-  .sos-progress{
-    position:absolute; inset:-5px; border-radius:50%;
-    background:conic-gradient(var(--white) calc(var(--p,0)*1%), transparent 0);
-    -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
-    mask:radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
-    pointer-events:none;
-  }
-  .device.discreet .sos-progress{ display:none; }
-  .sos-hint{ text-align:center; font-size:10.5px; opacity:.7; margin-top:10px; }
-
-  .status-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
-  .status-chip{ background:rgba(255,255,255,0.08); border-radius:12px; padding:10px 12px; }
-  .status-chip b{ display:block; font-size:14px; font-family:'Manrope',sans-serif; }
-  .status-chip span{ font-size:10.5px; opacity:.75; }
-
-  .row-between{ display:flex; align-items:center; justify-content:space-between; }
-  .pill{ font-size:10.5px; font-weight:700; padding:4px 10px; border-radius:20px; }
-  .pill.on{ background:#E4F6EC; color:var(--ok); }
-  .pill.off{ background:#F1EDF6; color:var(--purple-500); }
-
-  .alert-card{ display:flex; gap:10px; align-items:flex-start; }
-  .alert-icon{ width:32px; height:32px; border-radius:9px; background:var(--purple-100); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:15px; }
-  .alert-icon.high{ background:var(--alert-dim); }
-  .alert-title{ font-weight:700; font-size:13px; color:var(--purple-950); }
-  .device.discreet .alert-title{ color:#3A3A3D; }
-  .alert-meta{ font-size:11px; color:#9A8CAB; margin-top:2px; }
-
-  /* toggle switch */
-  .switch{ width:40px; height:23px; border-radius:20px; background:#E3D6F3; position:relative; cursor:pointer; flex-shrink:0; transition:.2s; }
-  .switch.on{ background:var(--purple-600); }
-  .switch::after{ content:''; position:absolute; top:2.5px; left:3px; width:18px; height:18px; border-radius:50%; background:var(--white); transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.2); }
-  .switch.on::after{ left:19px; }
-
-  /* MAP */
-  .map-box{
-    height:190px; border-radius:var(--radius-md); position:relative; overflow:hidden;
-    background:
-      linear-gradient(var(--purple-100) 1px, transparent 1px) 0 0/24px 24px,
-      linear-gradient(90deg, var(--purple-100) 1px, transparent 1px) 0 0/24px 24px,
-      #FBF7FE;
-    border:1px solid #EFE4FA; cursor:crosshair;
-  }
-  .map-me{ position:absolute; width:14px; height:14px; border-radius:50%; background:var(--purple-600); border:3px solid #fff; box-shadow:0 0 0 5px rgba(107,53,163,.18); top:52%; left:46%; }
-  .map-pin{ position:absolute; width:20px; height:20px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; font-size:10px; box-shadow:0 2px 4px rgba(0,0,0,.15); }
-  .map-pin span{ transform:rotate(45deg); }
-  .map-pin.risco{ background:var(--alert); }
-  .map-pin.atencao{ background:#E8A03D; }
-  .map-hint{ position:absolute; bottom:8px; left:8px; right:8px; background:rgba(255,255,255,.92); border-radius:8px; padding:6px 10px; font-size:10.5px; color:var(--purple-700); font-weight:600; }
-
-  .legend{ display:flex; gap:14px; margin:10px 0 4px; font-size:11px; color:#7A6A8C; }
-  .legend span{ display:inline-flex; align-items:center; gap:5px; }
-  .legend i{ width:9px; height:9px; border-radius:50%; display:inline-block; }
-
-  .report-item{ display:flex; gap:10px; padding:11px 0; border-bottom:1px solid #F1E9FA; }
-  .report-item:last-child{ border-bottom:none; }
-  .report-tag{ font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; padding:3px 7px; border-radius:6px; height:fit-content; }
-  .report-tag.risco{ background:var(--alert-dim); color:var(--alert); }
-  .report-tag.atencao{ background:#FBEBD1; color:#B87418; }
-  .report-tag.resolvido{ background:#E4F6EC; color:var(--ok); }
-  .report-text{ font-size:12.5px; color:var(--ink); line-height:1.4; }
-  .report-time{ font-size:10.5px; color:#B0A0C2; margin-top:2px; }
-
-  .fab-mini{
-    position:absolute; bottom:12px; right:12px; background:var(--purple-700); color:#fff;
-    width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    font-size:20px; cursor:pointer; box-shadow:0 6px 14px rgba(91,42,134,.4);
-  }
-
-  /* CONTATOS */
-  .contact-row{ display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid #F1E9FA; }
-  .contact-row:last-child{ border-bottom:none; }
-  .avatar{ width:38px; height:38px; border-radius:50%; background:var(--purple-100); color:var(--purple-700); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; font-family:'Manrope',sans-serif; }
-  .contact-name{ font-weight:700; font-size:13.5px; color:var(--purple-950); }
-  .device.discreet .contact-name{ color:#3A3A3D; }
-  .contact-rel{ font-size:11px; color:#9A8CAB; }
-  .contact-actions{ margin-left:auto; display:flex; align-items:center; gap:9px; }
-
-  .add-form{ display:flex; flex-direction:column; gap:9px; margin-top:10px; }
-  .add-form input, .add-form select, .add-form textarea{
-    border:1.5px solid #EBDFF7; border-radius:var(--radius-sm); padding:11px 12px; font-size:13px; font-family:inherit; color:var(--ink); background:#fff;
-  }
-  .add-form input:focus, .add-form select:focus, .add-form textarea:focus{ outline:none; border-color:var(--purple-500); }
-  .btn{
-    border:none; border-radius:var(--radius-sm); padding:12px 16px; font-weight:700; font-size:13px;
-    cursor:pointer; font-family:'Inter',sans-serif;
-  }
-  .btn-primary{ background:var(--purple-700); color:#fff; }
-  .btn-primary:hover{ background:var(--purple-900); }
-  .btn-ghost{ background:var(--purple-100); color:var(--purple-700); }
-
-  /* CENTRAL */
-  .acc{ background:var(--white); border-radius:var(--radius-md); border:1px solid #EFE4FA; margin-bottom:10px; overflow:hidden; }
-  .acc-head{ display:flex; align-items:center; gap:11px; padding:14px 15px; cursor:pointer; }
-  .acc-ico{ width:32px; height:32px; border-radius:9px; background:var(--purple-100); display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
-  .acc-title{ font-weight:700; font-size:13px; color:var(--purple-950); flex:1; }
-  .device.discreet .acc-title{ color:#3A3A3D; }
-  .acc-chev{ font-size:12px; color:#B0A0C2; transition:.2s; }
-  .acc.open .acc-chev{ transform:rotate(90deg); }
-  .acc-body{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
-  .acc.open .acc-body{ max-height:220px; }
-  .acc-body-inner{ padding:0 15px 15px 58px; font-size:12px; color:#5A4B6E; line-height:1.6; }
-
-  .hotline{ background:var(--purple-900); color:#fff; border-radius:var(--radius-md); padding:16px; display:flex; align-items:center; gap:12px; margin-top:4px; }
-  .hotline b{ font-family:'Manrope',sans-serif; font-size:15px; display:block; }
-  .hotline span{ font-size:11px; opacity:.75; }
-
-  /* bottom nav */
-  nav.bottomnav{
-    position:absolute; bottom:0; left:0; right:0; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px);
-    border-top:1px solid #EEE3FA; display:flex; padding:9px 6px 20px; z-index:20;
-  }
-  .device.discreet nav.bottomnav{ background:rgba(250,250,251,0.95); border-top-color:#E4E4E7; }
-  .navitem{ flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; cursor:pointer; color:#B4A6C6; }
-  .device.discreet .navitem{ color:#B0B0B5; }
-  .navitem .ic{ font-size:18px; }
-  .navitem .lb{ font-size:9.5px; font-weight:700; }
-  .navitem.active{ color:var(--purple-700); }
-  .device.discreet .navitem.active{ color:#3A3A3D; }
-
-  /* floating emergency (present on all screens, discreet look) */
-  .fab-emergency{
-    position:absolute; right:16px; bottom:96px; width:50px; height:50px; border-radius:50%;
-    background:var(--white); border:2px solid var(--alert-dim); display:flex; align-items:center; justify-content:center;
-    font-size:18px; color:var(--alert); box-shadow:0 8px 20px rgba(226,59,87,.25); z-index:25; cursor:pointer;
-    user-select:none; -webkit-user-select:none;
-  }
-  .device.discreet .fab-emergency{ background:#fff; border-color:#E4E4E7; color:#8A8A90; box-shadow:0 4px 10px rgba(0,0,0,.08); font-size:15px; }
-
-  /* toast */
-  .toast{
-    position:absolute; left:20px; right:20px; bottom:100px; background:var(--purple-950); color:#fff;
-    padding:13px 16px; border-radius:12px; font-size:12.5px; font-weight:600; display:flex; align-items:center; gap:10px;
-    transform:translateY(20px); opacity:0; pointer-events:none; transition:.3s; z-index:40;
-  }
-  .toast.on{ transform:none; opacity:1; }
-  .toast.alertmode{ background:var(--alert); }
-
-  /* modal */
-  .modal-bg{ position:absolute; inset:0; background:rgba(30,11,51,.5); display:flex; align-items:flex-end; z-index:50; opacity:0; pointer-events:none; transition:.25s; }
-  .modal-bg.on{ opacity:1; pointer-events:auto; }
-  .modal{ background:#fff; width:100%; border-radius:22px 22px 0 0; padding:20px 20px 26px; transform:translateY(20px); transition:.25s; }
-  .modal-bg.on .modal{ transform:none; }
-  .modal-title{ font-family:'Manrope',sans-serif; font-weight:800; font-size:16px; color:var(--purple-950); margin-bottom:4px; }
-  .modal-sub{ font-size:12px; color:#9A8CAB; margin-bottom:14px; }
-  .chiprow{ display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
-  .chip{ padding:8px 13px; border-radius:20px; border:1.5px solid #EBDFF7; font-size:12px; font-weight:600; color:var(--purple-700); cursor:pointer; }
-  .chip.sel{ background:var(--purple-700); color:#fff; border-color:var(--purple-700); }
-  .modal-actions{ display:flex; gap:10px; margin-top:14px; }
-  .modal-actions .btn{ flex:1; }
+    .emergency-btn {
+        width: 125px;
+        height: 125px;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<div class="device" id="device">
-  <div class="notch"></div>
-  <div class="statusbar">
-    <span id="clock">09:41</span>
-    <span>●●●●  LTE  🔋</span>
-  </div>
+<section class="login" id="login">
 
-  <header class="app-header">
-    <div class="brandrow">
-      <div class="brand">
-        <div class="brand-mark" id="brandMark">LS</div>
-        <div>
-          <div class="brand-name" id="brandName">Linha Segura</div>
-          <div class="brand-sub" id="brandSub">rede de apoio ativa</div>
-        </div>
-      </div>
-      <div class="discreet-toggle" id="discreetToggle" onclick="toggleDiscreet()">
-        <span class="dot"></span>
-        <span id="discreetLabel">Modo discreto</span>
-      </div>
+    <div class="login-box">
+
+        <div class="logo">LS</div>
+
+        <h1>Linha Segura</h1>
+
+        <p class="subtitle">
+            Tecnologia, prevenção e uma rede de proteção.
+        </p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Seu e-mail"
+        >
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Sua senha"
+        >
+
+        <button class="login-btn" onclick="entrar()">
+            Entrar
+        </button>
+
+        <p id="erro" style="color:#ff6b6b;margin-top:12px;"></p>
+
     </div>
-  </header>
 
-  <main>
+</section>
 
-    <!-- INÍCIO -->
-    <section class="screen active" id="screen-inicio">
-      <div class="sos-wrap">
-        <div class="sos-eyebrow" id="sosEyebrow">Botão de emergência</div>
-        <div class="sos-title" id="sosTitleTxt">Precisa de ajuda agora?</div>
-        <div class="sos-desc" id="sosDescTxt">Mantenha pressionado por 3 segundos para avisar sua rede de confiança e compartilhar sua localização em tempo real.</div>
-        <div class="sos-btn-row">
-          <div class="sos-btn" id="sosBtn">
-            <div class="sos-progress" id="sosProgress"></div>
-            <span id="sosBtnIcon">🆘</span>
-            <span id="sosBtnLabel">Segurar</span>
-          </div>
-        </div>
-        <div class="sos-hint" id="sosHint">Um toque simples não aciona nada — é preciso segurar.</div>
-        <div class="status-grid">
-          <div class="status-chip">
-            <b id="statContacts">3 ativos</b>
-            <span>contatos de confiança</span>
-          </div>
-          <div class="status-chip">
-            <b id="statShare">Ligado</b>
-            <span>compartilhamento de local</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="section-title">Alertas perto de você</div>
-      <div class="card alert-card">
-        <div class="alert-icon high">⚠️</div>
-        <div>
-          <div class="alert-title">Aumento de relatos à noite — Rua das Acácias</div>
-          <div class="alert-meta">3 relatos nas últimas 48h · 400m de você</div>
-        </div>
-      </div>
-      <div class="card alert-card">
-        <div class="alert-icon">💡</div>
-        <div>
-          <div class="alert-title">Iluminação pública precária — Praça Central</div>
-          <div class="alert-meta">Reportado por 5 pessoas da comunidade</div>
-        </div>
-      </div>
+<section class="app" id="app">
 
-      <div class="section-title">Central rápida</div>
-      <div class="card" style="display:flex; gap:10px; align-items:center;">
-        <div class="alert-icon">📞</div>
-        <div style="flex:1">
-          <div class="alert-title">Central de Atendimento à Mulher</div>
-          <div class="alert-meta">Ligue 180 · gratuito, 24h</div>
+<header>
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            LS
         </div>
-      </div>
+
+        <strong>Linha Segura</strong>
+
+    </div>
+
+    <button class="logout" onclick="sair()">
+        Sair
+    </button>
+
+</header>
+
+
+<main>
+
+    <div class="welcome">
+
+        <h2>Olá, seja bem-vinda! 👋</h2>
+
+        <p>
+            Sua segurança começa com informação e prevenção.
+        </p>
+
+    </div>
+
+
+    <section class="emergency">
+
+        <h3>Precisa de ajuda?</h3>
+
+        <p>
+            Acione seu alerta de emergência.
+        </p>
+
+        <button class="emergency-btn" onclick="emergencia()">
+            SOS
+        </button>
+
     </section>
 
-    <!-- MAPA -->
-    <section class="screen" id="screen-mapa">
-      <div class="section-title">Mapa colaborativo</div>
-      <div class="muted">Toque em qualquer ponto do mapa para registrar uma situação ou área de atenção.</div>
-      <div class="map-box" id="mapBox" style="margin-top:12px;">
-        <div class="map-me"></div>
-        <div class="map-pin risco" style="top:30%; left:24%;"><span>!</span></div>
-        <div class="map-pin atencao" style="top:64%; left:70%;"><span>!</span></div>
-        <div class="map-pin risco" style="top:22%; left:66%;"><span>!</span></div>
-        <div class="map-hint">Toque para reportar uma situação neste ponto</div>
-      </div>
-      <div class="legend">
-        <span><i style="background:var(--alert)"></i> risco reportado</span>
-        <span><i style="background:#E8A03D"></i> ponto de atenção</span>
-        <span><i style="background:var(--purple-600)"></i> você</span>
-      </div>
 
-      <div class="section-title">Relatos recentes</div>
-      <div class="card" id="reportList">
-        <div class="report-item">
-          <div class="report-tag risco">Risco</div>
-          <div>
-            <div class="report-text">Assédio relatado próximo ao ponto de ônibus da Av. Ipê</div>
-            <div class="report-time">há 40 min · confirmado por 4 pessoas</div>
-          </div>
+    <section class="grid">
+
+        <div class="card">
+
+            <div class="icon">📍</div>
+
+            <h3>Compartilhar localização</h3>
+
+            <p>
+                Envie sua localização para seus contatos de confiança.
+            </p>
+
+            <button onclick="localizacao()">
+                Compartilhar
+            </button>
+
         </div>
-        <div class="report-item">
-          <div class="report-tag atencao">Atenção</div>
-          <div>
-            <div class="report-text">Rua com pouco movimento após 22h</div>
-            <div class="report-time">há 3h · confirmado por 2 pessoas</div>
-          </div>
+
+
+        <div class="card">
+
+            <div class="icon">🗺️</div>
+
+            <h3>Mapa colaborativo</h3>
+
+            <p>
+                Consulte áreas de atenção e situações relatadas.
+            </p>
+
+            <button onclick="abrirModal('mapa')">
+                Abrir mapa
+            </button>
+
         </div>
-        <div class="report-item">
-          <div class="report-tag resolvido">Resolvido</div>
-          <div>
-            <div class="report-text">Iluminação da praça foi restabelecida</div>
-            <div class="report-time">ontem · confirmado por 6 pessoas</div>
-          </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔔</div>
+
+            <h3>Alertas preventivos</h3>
+
+            <p>
+                Receba avisos sobre situações de atenção próximas.
+            </p>
+
+            <button onclick="alert('Alertas preventivos ativados!')">
+                Ativar alertas
+            </button>
+
         </div>
-      </div>
+
+
+        <div class="card">
+
+            <div class="icon">👤</div>
+
+            <h3>Modo discreto</h3>
+
+            <p>
+                Interface simplificada para situações delicadas.
+            </p>
+
+            <button onclick="modoDiscreto()">
+                Ativar modo
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">ℹ️</div>
+
+            <h3>Central de informações</h3>
+
+            <p>
+                Acesse orientações e informações importantes.
+            </p>
+
+            <button onclick="abrirModal('info')">
+                Ver informações
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">👥</div>
+
+            <h3>Contatos de confiança</h3>
+
+            <p>
+                Cadastre pessoas que poderão receber seus alertas.
+            </p>
+
+            <button onclick="abrirModal('contatos')">
+                Gerenciar
+            </button>
+
+        </div>
+
     </section>
 
-    <!-- ALERTAS -->
-    <section class="screen" id="screen-alertas">
-      <div class="section-title">Alertas preventivos</div>
-      <div class="muted">Avisos automáticos com base em relatos da comunidade perto das suas rotas salvas.</div>
+</main>
 
-      <div class="card" style="margin-top:14px;">
-        <div class="row-between" style="margin-bottom:10px;">
-          <b style="font-size:13px; color:var(--purple-950)">Rota casa–trabalho</b>
-          <span class="pill on">monitorando</span>
-        </div>
-        <div class="muted">Você será avisada se houver novos relatos nesta rota.</div>
-      </div>
+</section>
 
-      <div class="card alert-card">
-        <div class="alert-icon high">🌙</div>
-        <div>
-          <div class="alert-title">Concentração de relatos noturnos</div>
-          <div class="alert-meta">Bairro Jardim das Flores · últimos 7 dias</div>
-        </div>
-      </div>
-      <div class="card alert-card">
-        <div class="alert-icon">🚧</div>
-        <div>
-          <div class="alert-title">Obra bloqueando calçada</div>
-          <div class="alert-meta">Rua dos Girassóis · alternativa sugerida no mapa</div>
-        </div>
-      </div>
-      <div class="card alert-card">
-        <div class="alert-icon high">👥</div>
-        <div>
-          <div class="alert-title">Aglomeração fora do comum relatada</div>
-          <div class="alert-meta">Terminal Central · há 25 min</div>
-        </div>
-      </div>
 
-      <div class="section-title">Preferências</div>
-      <div class="card row-between">
-        <div>
-          <div class="alert-title">Alertas em tempo real</div>
-          <div class="muted">Notificação assim que algo é reportado perto de você</div>
-        </div>
-        <div class="switch on" onclick="this.classList.toggle('on')"></div>
-      </div>
-    </section>
+<div class="modal" id="modal">
 
-    <!-- CONTATOS -->
-    <section class="screen" id="screen-contatos">
-      <div class="section-title">Rede de contatos de confiança</div>
-      <div class="muted">Escolha quem recebe seu alerta de emergência e pode acompanhar sua localização.</div>
+    <div class="modal-box">
 
-      <div class="card" style="margin-top:12px;" id="contactList">
-        <div class="contact-row">
-          <div class="avatar">MJ</div>
-          <div>
-            <div class="contact-name">Marina Junqueira</div>
-            <div class="contact-rel">irmã</div>
-          </div>
-          <div class="contact-actions">
-            <span class="pill on">local ligado</span>
-            <div class="switch on" onclick="this.classList.toggle('on')"></div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="avatar">CS</div>
-          <div>
-            <div class="contact-name">Camila Souza</div>
-            <div class="contact-rel">melhor amiga</div>
-          </div>
-          <div class="contact-actions">
-            <span class="pill on">local ligado</span>
-            <div class="switch on" onclick="this.classList.toggle('on')"></div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="avatar">RA</div>
-          <div>
-            <div class="contact-name">Rafael Alves</div>
-            <div class="contact-rel">vizinho</div>
-          </div>
-          <div class="contact-actions">
-            <span class="pill off">local desligado</span>
-            <div class="switch" onclick="this.classList.toggle('on')"></div>
-          </div>
-        </div>
-      </div>
+        <button class="close" onclick="fecharModal()">
+            ✕
+        </button>
 
-      <div class="section-title">Adicionar contato</div>
-      <div class="card">
-        <div class="add-form">
-          <input type="text" placeholder="Nome completo" id="cName">
-          <input type="text" placeholder="Relação (ex: mãe, amiga, colega)" id="cRel">
-          <input type="tel" placeholder="Telefone" id="cPhone">
-          <button class="btn btn-primary" onclick="addContact()">Adicionar à rede</button>
-        </div>
-      </div>
-    </section>
+        <div id="modalContent"></div>
 
-    <!-- CENTRAL -->
-    <section class="screen" id="screen-central">
-      <div class="section-title">Central de informações e orientação</div>
-
-      <div class="acc">
-        <div class="acc-head" onclick="toggleAcc(this)">
-          <div class="acc-ico">🛡️</div>
-          <div class="acc-title">O que fazer em uma situação de risco</div>
-          <div class="acc-chev">›</div>
-        </div>
-        <div class="acc-body"><div class="acc-body-inner">
-          Priorize sair do local para um espaço público e movimentado. Acione o botão de emergência e avise um contato de confiança sobre sua localização. Evite confronto direto sempre que possível.
-        </div></div>
-      </div>
-
-      <div class="acc">
-        <div class="acc-head" onclick="toggleAcc(this)">
-          <div class="acc-ico">⚖️</div>
-          <div class="acc-title">Seus direitos legais</div>
-          <div class="acc-chev">›</div>
-        </div>
-        <div class="acc-body"><div class="acc-body-inner">
-          Conheça os canais de denúncia disponíveis e os tipos de medida protetiva previstos em lei. Guarde prints, relatos e boletins de ocorrência como registro.
-        </div></div>
-      </div>
-
-      <div class="acc">
-        <div class="acc-head" onclick="toggleAcc(this)">
-          <div class="acc-ico">🤝</div>
-          <div class="acc-title">Como usar sua rede de apoio</div>
-          <div class="acc-chev">›</div>
-        </div>
-        <div class="acc-body"><div class="acc-body-inner">
-          Combine com seus contatos de confiança um plano simples: quem liga primeiro, quem vai até você, e uma palavra-código para pedir ajuda discretamente em público.
-        </div></div>
-      </div>
-
-      <div class="acc">
-        <div class="acc-head" onclick="toggleAcc(this)">
-          <div class="acc-ico">🕶️</div>
-          <div class="acc-title">Usando o modo discreto</div>
-          <div class="acc-chev">›</div>
-        </div>
-        <div class="acc-body"><div class="acc-body-inner">
-          O modo discreto muda a aparência do aplicativo para parecer um app comum de anotações, mantendo todas as funções de segurança acessíveis por baixo.
-        </div></div>
-      </div>
-
-      <div class="section-title">Linhas de apoio</div>
-      <div class="hotline">
-        <div class="alert-icon" style="background:rgba(255,255,255,.15)">📞</div>
-        <div>
-          <b>Central de Atendimento à Mulher</b>
-          <span>Disque 180 · gratuito e sigiloso, 24h</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <div class="fab-emergency" id="fabEmergency">🆘</div>
-
-  <div class="toast" id="toast">Enviado para sua rede de confiança</div>
-
-  <div class="modal-bg" id="reportModal">
-    <div class="modal">
-      <div class="modal-title">Registrar situação</div>
-      <div class="modal-sub">O que você quer sinalizar neste ponto do mapa?</div>
-      <div class="chiprow">
-        <div class="chip sel" data-tag="risco" onclick="selectChip(this)">Risco</div>
-        <div class="chip" data-tag="atencao" onclick="selectChip(this)">Atenção</div>
-        <div class="chip" data-tag="resolvido" onclick="selectChip(this)">Resolvido</div>
-      </div>
-      <div class="add-form">
-        <textarea rows="3" placeholder="Descreva brevemente o que está acontecendo" id="reportText"></textarea>
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
-        <button class="btn btn-primary" onclick="submitReport()">Publicar no mapa</button>
-      </div>
     </div>
-  </div>
-
-  <nav class="bottomnav" id="bottomnav">
-    <div class="navitem active" data-tab="inicio" data-label="Início" data-discreet="Notas" data-icon="🏠" data-icon-d="📝" onclick="goTab('inicio', this)">
-      <span class="ic">🏠</span><span class="lb">Início</span>
-    </div>
-    <div class="navitem" data-tab="mapa" data-label="Mapa" data-discreet="Locais" data-icon="🗺️" data-icon-d="📍" onclick="goTab('mapa', this)">
-      <span class="ic">🗺️</span><span class="lb">Mapa</span>
-    </div>
-    <div class="navitem" data-tab="alertas" data-label="Alertas" data-discreet="Lembretes" data-icon="🔔" data-icon-d="⏰" onclick="goTab('alertas', this)">
-      <span class="ic">🔔</span><span class="lb">Alertas</span>
-    </div>
-    <div class="navitem" data-tab="contatos" data-label="Contatos" data-discreet="Agenda" data-icon="👥" data-icon-d="👤" onclick="goTab('contatos', this)">
-      <span class="ic">👥</span><span class="lb">Contatos</span>
-    </div>
-    <div class="navitem" data-tab="central" data-label="Central" data-discreet="Ajuda" data-icon="📖" data-icon-d="❓" onclick="goTab('central', this)">
-      <span class="ic">📖</span><span class="lb">Central</span>
-    </div>
-  </nav>
 
 </div>
 
+
 <script>
-  // ---------- clock ----------
-  function updateClock(){
-    const d = new Date();
-    document.getElementById('clock').textContent =
-      d.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
-  }
-  updateClock(); setInterval(updateClock, 30000);
 
-  // ---------- tab navigation ----------
-  function goTab(tab, el){
-    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-    document.getElementById('screen-'+tab).classList.add('active');
-    document.querySelectorAll('.navitem').forEach(n=>n.classList.remove('active'));
-    el.classList.add('active');
-    document.querySelector('main').scrollTop = 0;
-  }
+function entrar() {
 
-  // ---------- discreet mode ----------
-  let discreet = false;
-  function toggleDiscreet(){
-    discreet = !discreet;
-    const device = document.getElementById('device');
-    const t = document.getElementById('discreetToggle');
-    device.classList.toggle('discreet', discreet);
-    t.classList.toggle('active', discreet);
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const erro = document.getElementById("erro");
 
-    document.getElementById('discreetLabel').textContent = discreet ? 'Discreto ativo' : 'Modo discreto';
-    document.getElementById('brandMark').textContent = discreet ? '📝' : 'LS';
-    document.getElementById('brandName').textContent = discreet ? 'Notas' : 'Linha Segura';
-    document.getElementById('brandSub').textContent = discreet ? '12 anotações' : 'rede de apoio ativa';
+    if (!email || !senha) {
 
-    document.getElementById('sosEyebrow').textContent = discreet ? 'Nova nota rápida' : 'Botão de emergência';
-    document.getElementById('sosTitleTxt').textContent = discreet ? 'Criar nota' : 'Precisa de ajuda agora?';
-    document.getElementById('sosDescTxt').textContent = discreet
-      ? 'Toque e segure o botão para salvar uma nota rápida.'
-      : 'Mantenha pressionado por 3 segundos para avisar sua rede de confiança e compartilhar sua localização em tempo real.';
-    document.getElementById('sosBtnIcon').textContent = discreet ? '+' : '🆘';
-    document.getElementById('sosBtnLabel').style.display = discreet ? 'none' : 'block';
-    document.getElementById('sosHint').textContent = discreet
-      ? 'Suas notas ficam salvas apenas neste aparelho.'
-      : 'Um toque simples não aciona nada — é preciso segurar.';
-    document.getElementById('fabEmergency').textContent = discreet ? '+' : '🆘';
+        erro.innerText =
+            "Digite seu e-mail e sua senha.";
 
-    document.querySelectorAll('.navitem').forEach(n=>{
-      n.querySelector('.lb').textContent = discreet ? n.dataset.discreet : n.dataset.label;
-      n.querySelector('.ic').textContent = discreet ? n.dataset.iconD : n.dataset.icon;
-    });
-  }
-
-  // ---------- SOS hold-to-activate ----------
-  let holdTimer=null, holdStart=0, holding=false;
-  const sosBtn = document.getElementById('sosBtn');
-  const sosProgress = document.getElementById('sosProgress');
-
-  function startHold(){
-    holding = true; holdStart = Date.now();
-    holdTimer = setInterval(()=>{
-      const pct = Math.min(100, ((Date.now()-holdStart)/3000)*100);
-      sosProgress.style.setProperty('--p', pct);
-      if(pct>=100){ clearInterval(holdTimer); holding=false; triggerEmergency(); }
-    }, 30);
-  }
-  function endHold(){
-    if(holding){ clearInterval(holdTimer); sosProgress.style.setProperty('--p',0); holding=false; }
-  }
-  sosBtn.addEventListener('mousedown', startHold);
-  sosBtn.addEventListener('touchstart', (e)=>{e.preventDefault(); startHold();});
-  sosBtn.addEventListener('mouseup', endHold);
-  sosBtn.addEventListener('mouseleave', endHold);
-  sosBtn.addEventListener('touchend', endHold);
-
-  const fab = document.getElementById('fabEmergency');
-  let fabTimer=null, fabHolding=false;
-  fab.addEventListener('mousedown', ()=>{ fabHolding=true; fabTimer=setTimeout(()=>{ if(fabHolding) triggerEmergency(); }, 1200); });
-  fab.addEventListener('touchstart', (e)=>{ e.preventDefault(); fabHolding=true; fabTimer=setTimeout(()=>{ if(fabHolding) triggerEmergency(); }, 1200); });
-  ['mouseup','mouseleave','touchend'].forEach(ev=>fab.addEventListener(ev, ()=>{ fabHolding=false; clearTimeout(fabTimer); }));
-
-  function triggerEmergency(){
-    sosProgress.style.setProperty('--p',0);
-    showToast(discreet ? 'Nota salva' : 'Alerta enviado · localização compartilhada com sua rede', true);
-  }
-
-  // ---------- toast ----------
-  function showToast(msg, alertMode){
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.toggle('alertmode', !!alertMode && !discreet);
-    t.classList.add('on');
-    clearTimeout(t._h);
-    t._h = setTimeout(()=>t.classList.remove('on'), 3200);
-  }
-
-  // ---------- map report modal ----------
-  let pendingPin = null, selectedTag='risco';
-  document.getElementById('mapBox').addEventListener('click', (e)=>{
-    const rect = e.currentTarget.getBoundingClientRect();
-    pendingPin = { x: ((e.clientX-rect.left)/rect.width*100).toFixed(1), y: ((e.clientY-rect.top)/rect.height*100).toFixed(1) };
-    document.getElementById('reportModal').classList.add('on');
-  });
-  function closeModal(){ document.getElementById('reportModal').classList.remove('on'); }
-  function selectChip(el){
-    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
-    el.classList.add('sel');
-    selectedTag = el.dataset.tag;
-  }
-  function submitReport(){
-    const text = document.getElementById('reportText').value.trim();
-    if(!text){ showToast('Descreva a situação antes de publicar'); return; }
-    if(pendingPin){
-      const pin = document.createElement('div');
-      pin.className = 'map-pin ' + selectedTag;
-      pin.style.top = pendingPin.y+'%'; pin.style.left = pendingPin.x+'%';
-      pin.innerHTML = '<span>!</span>';
-      document.getElementById('mapBox').appendChild(pin);
+        return;
     }
-    const list = document.getElementById('reportList');
-    const item = document.createElement('div');
-    item.className = 'report-item';
-    const label = selectedTag==='risco' ? 'Risco' : selectedTag==='atencao' ? 'Atenção' : 'Resolvido';
-    item.innerHTML = `<div class="report-tag ${selectedTag}">${label}</div>
-      <div><div class="report-text">${text.replace(/</g,'&lt;')}</div><div class="report-time">agora mesmo · você</div></div>`;
-    list.prepend(item);
-    document.getElementById('reportText').value='';
-    closeModal();
-    showToast('Publicado no mapa colaborativo');
-  }
 
-  // ---------- add contact ----------
-  function addContact(){
-    const name = document.getElementById('cName').value.trim();
-    const rel = document.getElementById('cRel').value.trim();
-    const phone = document.getElementById('cPhone').value.trim();
-    if(!name || !rel){ showToast('Preencha nome e relação'); return; }
-    const initials = name.split(' ').filter(Boolean).slice(0,2).map(n=>n[0].toUpperCase()).join('');
-    const row = document.createElement('div');
-    row.className = 'contact-row';
-    row.innerHTML = `<div class="avatar">${initials}</div>
-      <div><div class="contact-name">${name}</div><div class="contact-rel">${rel}</div></div>
-      <div class="contact-actions"><span class="pill on">local ligado</span>
-      <div class="switch on" onclick="this.classList.toggle('on')"></div></div>`;
-    document.getElementById('contactList').appendChild(row);
-    document.getElementById('cName').value=''; document.getElementById('cRel').value=''; document.getElementById('cPhone').value='';
-    const stat = document.getElementById('statContacts');
-    const n = parseInt(stat.textContent) + 1;
-    stat.textContent = n + ' ativos';
-    showToast('Contato adicionado à sua rede');
-  }
+    if (!email.includes("@")) {
 
-  // ---------- accordion ----------
-  function toggleAcc(head){
-    head.parentElement.classList.toggle('open');
-  }
+        erro.innerText =
+            "Digite um e-mail válido.";
+
+        return;
+    }
+
+    document.getElementById("login").style.display = "none";
+
+    document.getElementById("app").style.display = "block";
+}
+
+
+function sair() {
+
+    document.getElementById("app").style.display = "none";
+
+    document.getElementById("login").style.display = "flex";
+}
+
+
+function emergencia() {
+
+    const confirmar = confirm(
+        "Deseja realmente acionar o alerta de emergência?"
+    );
+
+    if (confirmar) {
+
+        alert(
+            "Alerta de emergência acionado!\n\n" +
+            "Em uma versão real, seus contatos de confiança receberiam o alerta."
+        );
+
+    }
+
+}
+
+
+function localizacao() {
+
+    if (!navigator.geolocation) {
+
+        alert(
+            "Seu navegador não suporta localização."
+        );
+
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude =
+                position.coords.latitude;
+
+            const longitude =
+                position.coords.longitude;
+
+            alert(
+                "Localização encontrada!\n\n" +
+                "Latitude: " +
+                latitude.toFixed(5) +
+                "\nLongitude: " +
+                longitude.toFixed(5) +
+                "\n\nEm uma versão real, essa localização seria enviada aos contatos de confiança."
+            );
+
+        },
+
+        function() {
+
+            alert(
+                "Não foi possível acessar sua localização."
+            );
+
+        }
+
+    );
+
+}
+
+
+function modoDiscreto() {
+
+    document.body.style.background = "#111";
+
+    document.querySelector(".app").style.filter =
+        "grayscale(0.8)";
+
+    alert(
+        "Modo discreto ativado."
+    );
+
+}
+
+
+function abrirModal(tipo) {
+
+    const modal =
+        document.getElementById("modal");
+
+    const content =
+        document.getElementById("modalContent");
+
+    modal.style.display = "flex";
+
+
+    if (tipo === "mapa") {
+
+        content.innerHTML = `
+
+            <h2>Mapa colaborativo</h2>
+
+            <p style="color:#aaa;">
+                Áreas de atenção relatadas pela comunidade.
+            </p>
+
+            <div class="map">
+                🗺️ Mapa de segurança
+            </div>
+
+            <button
+                style="
+                margin-top:15px;
+                padding:12px;
+                background:#7028e4;
+                color:white;
+                border:0;
+                border-radius:10px;
+                "
+                onclick="alert('Situação registrada no mapa.')"
+            >
+                + Relatar situação
+            </button>
+
+        `;
+
+    }
+
+
+    if (tipo === "info") {
+
+        content.innerHTML = `
+
+            <h2>Central de informações</h2>
+
+            <p style="color:#aaa;line-height:1.7;">
+
+                • Procure um local seguro em uma situação de risco.
+                <br><br>
+
+                • Mantenha seus contatos de confiança atualizados.
+                <br><br>
+
+                • Utilize os recursos de emergência quando necessário.
+                <br><br>
+
+                • Em uma situação de perigo imediato,
+                procure ajuda dos serviços de emergência da sua região.
+
+            </p>
+
+        `;
+
+    }
+
+
+    if (tipo === "contatos") {
+
+        content.innerHTML = `
+
+            <h2>Contatos de confiança</h2>
+
+            <p style="color:#aaa;margin-bottom:15px;">
+
+                Cadastre pessoas que poderão receber seus alertas.
+
+            </p>
+
+            <input
+                type="text"
+                id="nomeContato"
+                placeholder="Nome do contato"
+            >
+
+            <input
+                type="tel"
+                id="telefoneContato"
+                placeholder="Telefone"
+            >
+
+            <button
+                style="
+                width:100%;
+                padding:13px;
+                background:#7028e4;
+                color:white;
+                border:0;
+                border-radius:10px;
+                margin-top:10px;
+                "
+                onclick="salvarContato()"
+            >
+                Salvar contato
+            </button>
+
+            <p
+                id="contatoSalvo"
+                style="color:#aaa;margin-top:15px;"
+            ></p>
+
+        `;
+
+    }
+
+}
+
+
+function salvarContato() {
+
+    const nome =
+        document.getElementById("nomeContato").value;
+
+    const telefone =
+        document.getElementById("telefoneContato").value;
+
+    if (!nome || !telefone) {
+
+        alert(
+            "Preencha os dados do contato."
+        );
+
+        return;
+    }
+
+    document.getElementById("contatoSalvo").innerText =
+        "Contato " + nome + " salvo com sucesso!";
+
+}
+
+
+function fecharModal() {
+
+    document.getElementById("modal").style.display =
+        "none";
+
+}
+
 </script>
+
 </body>
 </html>
